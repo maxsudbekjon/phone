@@ -18,7 +18,8 @@ ALLOWED_HOSTS = [
     for host in os.getenv("ALLOWED_HOSTS", "*").split(",")
     if host.strip()
 ]
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 CORS_ALLOW_ALL_ORIGINS = os.getenv("CORS_ALLOW_ALL_ORIGINS", "False").lower() == "true"
 CORS_ALLOWED_ORIGINS = [
     origin.strip()
