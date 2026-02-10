@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: gunicorn api_project.wsgi:application --bind 0.0.0.0:8000
     ports:
       - "8093:8000"
     environment:
