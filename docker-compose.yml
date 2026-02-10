@@ -11,6 +11,26 @@ services:
       DEBUG: "True"
       ALLOWED_HOSTS: "*"
       CORS_ALLOW_ALL_ORIGINS: "True"
+      DB_ENGINE: "django.db.backends.postgresql"
+      DB_NAME: "phone"
+      DB_USER: "phone"
+      DB_PASSWORD: "phone"
+      DB_HOST: "db"
+      DB_PORT: "5432"
     volumes:
       - .:/app
       - ./db.sqlite3:/app/db.sqlite3
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: "phone"
+      POSTGRES_USER: "phone"
+      POSTGRES_PASSWORD: "phone"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
