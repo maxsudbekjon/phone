@@ -12,5 +12,5 @@ services:
       ALLOWED_HOSTS: "*"
       CORS_ALLOW_ALL_ORIGINS: "True"
     volumes:
-      - ./backend:/app
-      - ./backend/db.sqlite3:/app/db.sqlite3
+      - .:/app
+      - ./db.sqlite3:/app/db.sqlite3
