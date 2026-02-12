@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     command: gunicorn api_project.wsgi:application --bind 0.0.0.0:8000
     ports:
-      - "8093:8000"
+      - "8093:8000"      
     environment:
       DEBUG: "True"
       ALLOWED_HOSTS: "*"
@@ -21,6 +21,7 @@ services:
     volumes:
       - .:/app
       - ./db.sqlite3:/app/db.sqlite3
+      - static_volume:/app/staticfiles
     depends_on:
       - db
 
@@ -35,3 +36,4 @@ services:
 
 volumes:
   pgdata:
+  static_volume:
