@@ -21,7 +21,7 @@ services:
     volumes:
       - .:/app
       - ./db.sqlite3:/app/db.sqlite3
-      - static_volume:/app/staticfiles
+      - ./staticfiles:/app/staticfiles
     depends_on:
       - db
 
